@@ -1,0 +1,4 @@
+{
+  "desc": "墨流",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

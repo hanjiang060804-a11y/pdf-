@@ -1,0 +1,33 @@
+page {
+  background: #f7f4ef;
+  color: #1a1a1a;
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+.btn-primary {
+  background: #1a1a1a;
+  color: #f7f4ef;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid #c8c4bc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e8e4dc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.muted {
+  color: #6b6560;
+  font-size: 13px;
+}

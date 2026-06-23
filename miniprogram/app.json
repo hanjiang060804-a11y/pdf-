@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/progress/progress"
+  ],
+  "window": {
+    "navigationBarTitleText": "墨流",
+    "navigationBarBackgroundColor": "#f7f4ef",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f4ef"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

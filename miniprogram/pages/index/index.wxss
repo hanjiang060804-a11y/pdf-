@@ -1,0 +1,38 @@
+.page {
+  padding: 32rpx;
+}
+
+.hero {
+  margin-bottom: 40rpx;
+}
+
+.title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 600;
+  letter-spacing: 8rpx;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  color: #6b6560;
+}
+
+.privacy {
+  display: block;
+  margin-top: 16rpx;
+}
+
+.fname {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.meta, .hint {
+  display: block;
+  margin-top: 8rpx;
+}

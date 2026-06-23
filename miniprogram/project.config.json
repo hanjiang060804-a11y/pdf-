@@ -1,0 +1,13 @@
+{
+  "description": "墨流 PDF 翻译",
+  "packOptions": { "ignore": [] },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "moliu-pdf",
+  "libVersion": "3.5.5"
+}

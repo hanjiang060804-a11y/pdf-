@@ -16,6 +16,7 @@ JobPhase = Literal["preparing", "ocr", "translate", "polish", "done", "error"]
 @dataclass
 class Job:
     id: str
+    owner_openid: str | None = None
     status: JobStatus = "pending"
     phase: JobPhase = "preparing"
     progress: int = 0
@@ -34,8 +35,8 @@ class JobStore:
         self._lock = threading.Lock()
         self._executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="pdf-tra-job")
 
-    def create(self) -> Job:
-        job = Job(id=uuid.uuid4().hex)
+    def create(self, *, owner_openid: str | None = None) -> Job:
+        job = Job(id=uuid.uuid4().hex, owner_openid=owner_openid)
         with self._lock:
             self._jobs[job.id] = job
         return job

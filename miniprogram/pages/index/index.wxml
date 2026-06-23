@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="hero">
+    <text class="title">墨流</text>
+    <text class="subtitle">微信里的 PDF 翻译</text>
+    <text class="privacy muted">文件将上传至服务器翻译，完成后可删除</text>
+  </view>
+
+  <view class="card" wx:if="{{filename}}">
+    <text class="fname">{{filename}}</text>
+    <text class="meta muted">{{meta}}</text>
+    <text class="hint muted" wx:if="{{hint}}">{{hint}}</text>
+  </view>
+
+  <button class="btn-primary" bindtap="pickFromChat">从聊天选择 PDF</button>
+  <button class="btn-secondary" style="margin-top:12px" bindtap="pickLocal">从手机选择</button>
+
+  <button
+    class="btn-primary"
+    style="margin-top:24px"
+    disabled="{{!canTranslate || loading}}"
+    bindtap="startTranslate"
+  >
+    {{translateLabel}}
+  </button>
+</view>

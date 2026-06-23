@@ -1,0 +1,16 @@
+<view class="page">
+  <text class="fname">{{filename}}</text>
+  <view class="card">
+    <view class="row">
+      <text>{{phaseLabel}}</text>
+      <text>{{progress}}%</text>
+    </view>
+    <progress percent="{{progress}}" stroke-width="4" activeColor="#1a1a1a" backgroundColor="#e8e4dc" />
+    <text class="msg muted">{{message}}</text>
+  </view>
+
+  <view wx:if="{{done}}">
+    <button class="btn-primary" bindtap="preview">预览译文</button>
+    <button class="btn-secondary" style="margin-top:12px" bindtap="download">保存到手机</button>
+  </view>
+</view>
