@@ -19,15 +19,36 @@
 
 ## 2. 服务器部署（SSH 登录 122.152.207.51 后）
 
+### 2.0 配置 GitHub SSH（首次必做）
+
+私有仓库 **不能 curl 脚本**（404），也 **不能无公钥 git clone**。
+
 ```bash
-# 依赖
-sudo apt-get update
-sudo apt-get install -y git
+# 以 ubuntu 用户执行（不要 sudo）
+ssh-keygen -t ed25519 -C "hanjianglab-vm" -f ~/.ssh/id_ed25519 -N ""
 
-# 克隆（私有仓库需已配置 GitHub SSH 公钥）
-sudo git clone -b v2/wechat-miniprogram git@github.com:hanjiang060804-a11y/pdf-.git /opt/pdf-tra
+cat ~/.ssh/id_ed25519.pub
+```
 
-# 一键 Docker 部署
+复制输出 → GitHub → **Settings → SSH and GPG keys → New SSH key**（或仓库 **Settings → Deploy keys** 只读即可）
+
+测试：
+
+```bash
+ssh -T git@github.com
+# 应看到 Hi hanjiang060804-a11y!
+```
+
+> ⚠️ 不要用 `sudo git clone`，否则用的是 root 的 `~/.ssh`，容易 Permission denied。
+
+### 2.1 克隆与部署
+
+```bash
+# 不要用 sudo clone
+git clone -b v2/wechat-miniprogram git@github.com:hanjiang060804-a11y/pdf-.git /tmp/pdf-tra
+sudo mv /tmp/pdf-tra /opt/pdf-tra
+sudo chown -R ubuntu:ubuntu /opt/pdf-tra
+
 sudo bash /opt/pdf-tra/deploy/scripts/server-deploy.sh
 ```
 
