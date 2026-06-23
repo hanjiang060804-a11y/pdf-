@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -45,8 +46,10 @@ def create_cloud_app(
     upload_dir: Path | None = None,
     settings: CloudSettings | None = None,
 ) -> FastAPI:
-    cfg_path = (config_path or Path("config.json")).resolve()
-    uploads = (upload_dir or Path("output") / "cloud-uploads").resolve()
+    cfg_path = (config_path or Path(os.environ.get("PDF_TRA_CONFIG", "config.json"))).resolve()
+    uploads = (
+        upload_dir or Path(os.environ.get("PDF_TRA_UPLOAD_DIR", "output/cloud-uploads"))
+    ).resolve()
     uploads.mkdir(parents=True, exist_ok=True)
     cloud_settings = settings or CloudSettings.from_env()
     jobs = JobStore()

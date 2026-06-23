@@ -1,0 +1,18 @@
+# Git / local
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+output
+docs
+miniprogram
+tests
+*.pdf
+config.json
+.env
+.env.*
+
+# Keep deploy data on host via volumes
+!config.example.json
