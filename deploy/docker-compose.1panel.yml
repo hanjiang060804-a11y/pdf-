@@ -1,0 +1,25 @@
+# 1Panel 专用：仅 API，不占 80 端口（HTTPS 用 1Panel 网站反代 → 127.0.0.1:8787）
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: pdf-tra-cloud
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PDF_TRA_CONFIG: /data/config.json
+      PDF_TRA_UPLOAD_DIR: /data/uploads
+      PDF_TRA_PORT: "8787"
+    volumes:
+      - ./data/config.json:/data/config.json:ro
+      - ./data/uploads:/data/uploads
+    ports:
+      - "127.0.0.1:8787:8787"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
