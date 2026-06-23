@@ -2,16 +2,18 @@
 
 分支：`v2/wechat-miniprogram`
 
-## 方式一：一键脚本（推荐 Ubuntu 22.04+）
+## 方式一：一键脚本（Ubuntu 22.04+）
+
+> **私有仓库**无法 `curl raw.githubusercontent.com`（会 404）。请先 **git clone**（见方式二），再执行：
+>
+> ```bash
+> sudo bash /opt/pdf-tra/deploy/scripts/server-deploy.sh
+> ```
+
+公开仓库才可用：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/hanjiang060804-a11y/pdf-/v2/wechat-miniprogram/deploy/scripts/server-deploy.sh | sudo bash
-```
-
-或克隆后：
-
-```bash
-sudo bash deploy/scripts/server-deploy.sh
 ```
 
 默认安装目录：`/opt/pdf-tra`
