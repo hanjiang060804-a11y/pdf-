@@ -1,0 +1,16 @@
+[project]
+name = "pdf-tra"
+version = "0.1.0"
+description = "PDF translation orchestrator: pdf2zh + DeepSeek + poppler"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "pdf2zh>=1.9.11,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

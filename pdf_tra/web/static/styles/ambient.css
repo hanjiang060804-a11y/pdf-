@@ -1,0 +1,101 @@
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 宣纸底纹 */
+.ambient__paper {
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    linear-gradient(168deg, #f8f2e8 0%, var(--paper) 40%, var(--paper-warm) 100%);
+}
+
+/* 水墨晕染 */
+.ambient__wash {
+  position: absolute;
+  opacity: 0.55;
+  filter: blur(1px);
+}
+
+.ambient__wash--1 {
+  width: 55vw;
+  height: 55vw;
+  max-width: 520px;
+  max-height: 520px;
+  top: -8%;
+  left: -10%;
+  background: radial-gradient(ellipse at 40% 45%, rgba(26,26,26,0.11) 0%, transparent 68%);
+  animation: washDrift1 28s ease-in-out infinite alternate;
+}
+
+.ambient__wash--2 {
+  width: 48vw;
+  height: 48vw;
+  max-width: 460px;
+  max-height: 460px;
+  bottom: 8%;
+  right: -6%;
+  background: radial-gradient(ellipse at 55% 50%, rgba(26,26,26,0.09) 0%, transparent 65%);
+  animation: washDrift2 32s ease-in-out infinite alternate;
+}
+
+.ambient__wash--3 {
+  width: 36vw;
+  height: 28vw;
+  max-width: 340px;
+  bottom: 22%;
+  left: 18%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(26,26,26,0.06) 0%, transparent 70%);
+  animation: washDrift3 24s ease-in-out infinite alternate;
+}
+
+/* 墨迹 SVG 装饰 */
+.ambient__ink-stroke {
+  position: absolute;
+  opacity: 0.07;
+  color: var(--ink);
+}
+
+.ambient__ink-stroke--tl {
+  top: 6%;
+  left: 4%;
+  width: 180px;
+  animation: inkFade 20s ease-in-out infinite;
+}
+
+.ambient__ink-stroke--br {
+  bottom: 12%;
+  right: 6%;
+  width: 220px;
+  transform: rotate(12deg);
+  animation: inkFade 24s ease-in-out infinite reverse;
+}
+
+/* 竖排装饰（仅宽屏） */
+.ambient__vertical {
+  display: none;
+  position: absolute;
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  color: rgba(26, 26, 26, 0.12);
+}
+
+@media (min-width: 1100px) {
+  .ambient__vertical { display: block; }
+}
+
+body.is-busy .ambient__wash { animation-duration: 16s; opacity: 0.7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__wash, .ambient__ink-stroke { animation: none !important; }
+}

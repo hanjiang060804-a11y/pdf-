@@ -1,0 +1,55 @@
+:root {
+  /* 宣纸与墨色 */
+  --paper: #f6f0e4;
+  --paper-warm: #efe6d4;
+  --paper-shadow: #e3d9c8;
+  --ink: #1a1a1a;
+  --ink-mid: #3d3d3d;
+  --ink-light: #6b6b6b;
+  --ink-wash: rgba(26, 26, 26, 0.08);
+  --ink-wash-mid: rgba(26, 26, 26, 0.14);
+  --ink-wash-strong: rgba(26, 26, 26, 0.22);
+  --seal: #b33a32;
+  --seal-dark: #8f2e28;
+  --seal-glow: rgba(179, 58, 50, 0.25);
+  --success: #2d6a4f;
+  --error: #9b2226;
+
+  --c-ink: var(--ink);
+  --c-muted: var(--ink-light);
+  --c-soft: #8a8278;
+  --c-surface: rgba(255, 252, 247, 0.88);
+  --c-surface-strong: rgba(255, 252, 247, 0.96);
+  --c-border: rgba(26, 26, 26, 0.12);
+  --c-border-strong: rgba(26, 26, 26, 0.28);
+
+  --shadow-panel: 0 20px 60px rgba(26, 26, 26, 0.08), 0 2px 8px rgba(26, 26, 26, 0.04);
+  --shadow-ink: 0 8px 32px rgba(26, 26, 26, 0.12);
+
+  --radius-xl: 4px;
+  --radius-lg: 3px;
+  --radius-md: 2px;
+  --radius-sm: 2px;
+
+  --font-display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-body: "Noto Sans SC", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--c-ink);
+  background: var(--paper);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hidden { display: none !important; }

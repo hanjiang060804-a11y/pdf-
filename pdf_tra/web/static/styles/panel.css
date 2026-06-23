@@ -1,0 +1,36 @@
+.workbench {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow-panel);
+  padding: 20px 18px 24px;
+  position: relative;
+}
+
+/* 纸页折角 */
+.workbench::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(225deg, var(--paper-shadow) 50%, var(--c-surface-strong) 50%);
+  border-left: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  pointer-events: none;
+}
+
+.workbench::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--ink-wash);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.workbench > * { position: relative; z-index: 1; }
+
+@media (min-width: 640px) {
+  .workbench { padding: 24px 26px 28px; }
+}

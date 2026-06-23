@@ -1,0 +1,19 @@
+{
+  "PDF2ZH_LANG_FROM": "English",
+  "PDF2ZH_LANG_TO": "Simplified Chinese",
+  "threads": 4,
+  "max_threads": 8,
+  "translate_engine": "classic",
+  "translate_fallback": true,
+  "layout_polish": false,
+  "translators": [
+    {
+      "name": "deepseek",
+      "envs": {
+        "DEEPSEEK_API_KEY": "sk-test-key-12345",
+        "DEEPSEEK_MODEL": "deepseek-chat",
+        "DEEPSEEK_BASE_URL": "https://api.deepseek.com/v1"
+      }
+    }
+  ]
+}
