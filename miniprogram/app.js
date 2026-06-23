@@ -2,7 +2,8 @@ const { ensureLogin } = require("./utils/auth");
 
 App({
   globalData: {
-    apiBase: "http://127.0.0.1:8787",
+    // 生产: https://api.hanjianglab.com
+    apiBase: "https://api.hanjianglab.com",
   },
   async onLaunch() {
     try {
